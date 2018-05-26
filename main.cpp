@@ -37,11 +37,14 @@ int main()
 
     cout << endl << "From std::string: ";
 
-    for (auto ch: h.from_string(s)) {
+    auto j = h.from_string(s);
+
+    for (auto ch: j) {
         cout << ch << " " << flush;
     }
 
     cout << endl;
 
-    cout << "UTF-8: " << h.to_string(h.from_string(s)) << endl;
+    cout << "UTF-8 length: " << s.length() << ", UTF-16 length: " << j.length() << endl;
+    cout << "UTF-8: " << h.to_string(j) << endl;
 }
