@@ -15,13 +15,8 @@ fn main()
     }
     println!();
 
-    print!("UCS2 string from std::string: ");
     let ucs2_string: Vec<u16> = utf8_string.chars().map(|c| c as u16).collect();
-
-    for ch in &ucs2_string {
-        print!("{} ", ch);
-    }
-    println!();
+    println!("UCS2 string from std::string: {:?}", ucs2_string);
 
     println!("UTF-8 length: {}, UCS2 length: {}", utf8_string.len(), ucs2_string.len() );
     println!("Verificarion: UTF-8: {}", String::from_utf16(&ucs2_string).unwrap() );
