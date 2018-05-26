@@ -16,7 +16,7 @@ class MyClassT {
         }
 
         static std::string to_string(basic_string<CharType> s) {
-            return std::wstring_convert<std::codecvt_utf8_utf16<char>, char>{}.to_bytes(s);
+            return std::wstring_convert<std::codecvt_utf8_utf16<CharType>, CharType>{}.to_bytes(s);
         }
 };
 
@@ -42,4 +42,6 @@ int main()
     }
 
     cout << endl;
+
+    cout << "UTF-8: " << h.to_string(h.from_string(s)) << endl;
 }
