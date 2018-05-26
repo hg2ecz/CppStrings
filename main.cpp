@@ -29,7 +29,17 @@ int main()
 
     auto s = string { "Salve, Munde, éé áá őő űű" };
 
+    cout << "From UTF-8 const char*: ";
+
     for (auto ch: h.from_string("őőűű")) {
         cout << ch << " " << flush;
     }
+
+    cout << endl << "From std::string: ";
+
+    for (auto ch: h.from_string(s)) {
+        cout << ch << " " << flush;
+    }
+
+    cout << endl;
 }
