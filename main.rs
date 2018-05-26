@@ -6,10 +6,12 @@ fn main()
     let utf8_string = String::from("Salve, Munde, éé áá őő űű");
 
     println!("UTF-8 string: {}", utf8_string);
-    print!("UTF-8 as const char*: ");
+    let bvec: Vec<u8> = utf8_string.bytes().collect();
+    println!("UTF-8 as vector of bytes: {:?}", bvec);
 
+    print!("UTF-8 as const char*: ");
     for ch in 0..utf8_string.len() {
-        print!("{} ", unsafe {utf8_string.get_unchecked(ch..ch+1)} );
+        print!("{} ", unsafe {utf8_string.get_unchecked(ch..ch+1)} ); // unprintable characters!
     }
     println!();
 
